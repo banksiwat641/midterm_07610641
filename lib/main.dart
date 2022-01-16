@@ -13,103 +13,222 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.pink,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: HomePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+class HomePage extends StatelessWidget {
+  HomePage({Key? key}) : super(key: key);
+  var _controller01 = TextEditingController();
+  var _controller02 = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+      body: Container(
+        constraints: BoxConstraints.expand(),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/bg.jpg'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Container(
+
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'PIG WEIGHT',
+                  style: TextStyle(fontSize: 60.0, color: Colors.pinkAccent),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  'CALCULATOR',
+                  style:
+                      TextStyle(fontSize: 50.0, color: Colors.pinkAccent),
+                  textAlign: TextAlign.center,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Image.asset(
+                    'assets/images/pig.png',
+                    width: 300.0,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(70.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 300,
+                        height: 110,
+
+                        padding: const EdgeInsets.symmetric(vertical: 10.0),
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black12.withOpacity(1.0),
+                                offset: const Offset(8.0, 5.0),
+                                blurRadius: 10.0,
+                                spreadRadius: 3.0,
+                              ),
+                            ]
+
+                        ),
+                        child: Column(
+                          children: [
+                            Text(
+                              'LENGTH',
+                              style: TextStyle(
+                                  fontSize: 20.0, color: Colors.black),
+                              textAlign: TextAlign.center,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: TextField(
+                                controller: _controller01,
+                              ),
+
+                            ),
+
+
+                          ],
+
+
+
+                        ),
+
+                      ),
+
+
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Container(
+                          width: 300,
+                          height: 110,
+                          padding: const EdgeInsets.symmetric(vertical: 10.0),
+
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black12.withOpacity(1.0),
+                                  offset: const Offset(8.0, 5.0),
+                                  blurRadius: 10.0,
+                                  spreadRadius: 3.0,
+                                ),
+                              ]
+
+                          ),
+
+                          child: Column(
+                            children: [
+                              Text(
+                                'GIRTH',
+                                style: TextStyle(
+                                    fontSize: 20.0, color: Colors.black),
+                                textAlign: TextAlign.center,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: TextField(
+                                  controller: _controller02,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(60.0),
+                  child: ElevatedButton(
+                      onPressed: () {
+                        var input01 = _controller01.text;
+                        var input02 = _controller02.text;
+                        var weight = 0.0;
+                        var length = double.tryParse(input01);
+                        var girth = double.tryParse(input02);
+                        if (length == null || weight == null) {
+                          print(
+                              "กรอกข้อมูลไม่ถูกต้อง ให้กรอกเฉพาะตัวเลขเท่านั้น");
+                          showDialog(
+                              context: context,
+                              barrierDismissible: false,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('ERROR',
+                                      style: TextStyle(
+                                          color: Colors.red,
+                                          fontWeight: FontWeight.bold)),
+                                  content: Text('Invalid input'),
+                                  actions: [
+                                    ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Text('OK'))
+                                  ],
+                                );
+                              });
+                        } else {
+                          double weight = (girth! / 100) *
+                              (girth / 100) *
+                              (length / 100) *
+                              69.3;
+                          double price = weight * 112.50;
+                          double Tolerance_weight_max =
+                              (0.03 * weight) + weight;
+                          double Tolerance_price_max = (0.03 * price) + price;
+                          double Tolerance_weight_min =
+                              weight - (0.03 * weight);
+                          double Tolerance_price_min = price - (0.03 * price);
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: Row(
+                                    children: [
+                                      Image.asset('assets/images/ic_pig.png',
+                                          width: 30, height: 30),
+                                      Text('  RESULT'),
+                                    ],
+                                  ),
+                                ),
+                                content: Text(
+                                    'Weight: ${Tolerance_weight_min.round()} - ${Tolerance_weight_max.round()} kg\nPrice: ${Tolerance_price_min.round()} - ${Tolerance_price_max.round()} Baht'),
+                                actions: [
+                                  // ปุ่ม OK ใน dialog
+                                  TextButton(
+                                    child: const Text('OK'),
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        }
+                      },
+                      child: Text('CALCULATE')),
+                ),
+              ],
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
